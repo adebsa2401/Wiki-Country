@@ -6,13 +6,15 @@ import CountryItem from '../components/CountryItem';
 import { loadCountries } from '../redux/countries/countries';
 
 export default function HomePage() {
-  const countries = useSelector((state) => state.countries);
+  const [countries, { limit, ge }] = useSelector(
+    (state) => [state.countries, state.countriesFilter],
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(loadCountries());
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [countries.length]);
 
   return (
     <div>
@@ -20,16 +22,23 @@ export default function HomePage() {
       <main>
         <Filter />
         <div className="countries-grid">
-          {countries.map((country) => (
-            <CountryItem
-              key={country.iso2}
-              name={country.name}
-              statistic={country.population}
-              flag={country.flag}
-              map={country.map}
-              iso2={country.iso2}
-            />
-          ))}
+          {countries
+            .filter((country) => {
+              if (ge) {
+                return country.population >= limit;
+              }
+              return country.population <= limit;
+            })
+            .map((country) => (
+              <CountryItem
+                key={country.name}
+                name={country.name}
+                statistic={country.population}
+                flag={country.flag}
+                map={country.map}
+                iso2={country.iso2}
+              />
+            ))}
         </div>
       </main>
     </div>

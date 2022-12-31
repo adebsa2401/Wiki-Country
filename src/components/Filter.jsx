@@ -1,24 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaGreaterThanEqual, FaLessThanEqual } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterCountries } from '../redux/countries/filter';
 
 export default function Filter() {
-  const [geSign, setGeSign] = useState(true);
-  const [filterValue, setFilterValue] = useState(0);
+  const { limit, ge } = useSelector((state) => state.countriesFilter);
+  const dispatch = useDispatch();
 
   return (
     <div className="filter-container">
       <span>Population</span>
       <button
         type="button"
-        onClick={() => setGeSign(!geSign)}
+        onClick={() => dispatch(filterCountries(limit, !ge))}
       >
-        { geSign ? <FaGreaterThanEqual /> : <FaLessThanEqual /> }
+        { ge ? <FaGreaterThanEqual /> : <FaLessThanEqual /> }
       </button>
       <input
         type="number"
-        value={filterValue}
+        value={limit}
         min={0}
-        onChange={(event) => setFilterValue(event.target.value)}
+        onChange={(event) => dispatch(filterCountries(event.target.value, ge))}
       />
     </div>
   );
