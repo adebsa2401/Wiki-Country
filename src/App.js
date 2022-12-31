@@ -11,7 +11,7 @@ export default function App() {
     createRoutesFromElements(
       <Route path="/">
         <Route path="countries" element={<HomePage />} />
-        <Route path="countries/:id/cities" />
+        <Route path="countries/:country/cities" />
       </Route>,
     ),
   );
