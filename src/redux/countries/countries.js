@@ -2,10 +2,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const LOAD = 'wiki-country/countries/LOAD';
 
-export const loadCountries = () => createAsyncThunk(
+export const loadCountries = createAsyncThunk(
   LOAD,
   async () => {
-    const response = await fetch(`${process.env.REACT_APP_COUNTRIES_API_URL}?min_population=1000000`, {
+    const response = await fetch(`${process.env.REACT_APP_COUNTRIES_API_URL}?min_population=1000&limit=30`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

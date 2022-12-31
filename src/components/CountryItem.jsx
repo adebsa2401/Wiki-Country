@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default function CountryItem({
-  name, statistic, flagImage, mapImage,
+  name, statistic, flag, map, iso2,
 }) {
   const style = {
-    backgroundImage: mapImage,
+    backgroundImage: `url(${map})`,
   };
 
   return (
     <div
       className="country-item"
       style={style}
-      onClick={null}
-      onKeyDown={null}
+      role="presentation"
+      onClick={() => window.open(`https://en.wikipedia.org/wiki/${iso2}`)}
     >
       <div>
-        <img src={flagImage} alt={`${name}-flag`} />
+        <img crossOrigin="anonymous" src={flag} alt={`${name} flag`} />
         <span>{name}</span>
       </div>
       <span>{statistic}</span>
@@ -27,6 +27,7 @@ export default function CountryItem({
 CountryItem.propTypes = {
   name: PropTypes.string.isRequired,
   statistic: PropTypes.number.isRequired,
-  flagImage: PropTypes.string.isRequired,
-  mapImage: PropTypes.string.isRequired,
+  flag: PropTypes.string.isRequired,
+  map: PropTypes.string.isRequired,
+  iso2: PropTypes.string.isRequired,
 };
