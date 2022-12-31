@@ -2,12 +2,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const LOAD = 'wiki-country/cities/LOAD';
 
-let minPopulation = 45000;
-let maxPopulation = 100000000;
+const minPopulationObject = {};
+const maxPopulationObject = {};
 
 export const loadCities = createAsyncThunk(
   LOAD,
   async (country) => {
+    const minPopulation = minPopulationObject[country] || 0;
+    const maxPopulation = maxPopulationObject[country] || 100000000;
+
     const response = await fetch(`${process.env.REACT_APP_CITIES_API_URL}?country=${country}&min_population=${minPopulation}&max_population=${maxPopulation}&limit=30`, {
       method: 'GET',
       headers: {
@@ -22,8 +25,8 @@ export const loadCities = createAsyncThunk(
       isCapital: city.is_capital,
     }));
 
-    maxPopulation = minPopulation;
-    minPopulation -= 1000000;
+    minPopulationObject[country] = Math.max(...data.map((city) => city.population));
+    maxPopulationObject[country] = minPopulation + 1000000;
 
     return { [country]: data };
   },
