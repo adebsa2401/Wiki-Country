@@ -16,7 +16,7 @@ export default function DetailsPage() {
   useEffect(() => {
     dispatch(loadCities(country));
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cities.length]);
+  }, [cities && cities.length]);
 
   return (
     <div>
@@ -24,7 +24,7 @@ export default function DetailsPage() {
       <main>
         <Filter />
         <div className="cities-list">
-          {cities
+          {cities && cities
             .filter((city) => {
               if (ge) {
                 return city.population >= limit;

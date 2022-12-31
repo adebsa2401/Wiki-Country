@@ -2,13 +2,12 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const LOAD = 'wiki-country/countries/LOAD';
 
-let minPopulation = 45000;
-let maxPopulation = 100000000;
+let minPopulation = 0;
 
 export const loadCountries = createAsyncThunk(
   LOAD,
   async () => {
-    const response = await fetch(`${process.env.REACT_APP_COUNTRIES_API_URL}?min_population=${minPopulation}&max_population=${maxPopulation}&limit=30`, {
+    const response = await fetch(`${process.env.REACT_APP_COUNTRIES_API_URL}?min_population=${minPopulation}&limit=30`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -24,8 +23,9 @@ export const loadCountries = createAsyncThunk(
       map: `${process.env.REACT_APP_MAPS_URL}/${country.iso2.toLowerCase()}/128.png`,
     }));
 
-    maxPopulation = minPopulation;
-    minPopulation -= 10000;
+    if (data.length > 0) {
+      minPopulation = Math.max(...(data).map((country) => parseInt(country.population / 1000, 10)));
+    }
 
     return data;
   },

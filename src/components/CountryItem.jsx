@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 
 export default function CountryItem({
   name, statistic, flag, map, iso2,
 }) {
+  const navigate = useNavigate();
   const style = {
     backgroundImage: `url(${map})`,
   };
@@ -13,7 +15,7 @@ export default function CountryItem({
       className="country-item"
       style={style}
       role="presentation"
-      onClick={() => window.open(`https://en.wikipedia.org/wiki/${iso2}`)}
+      onClick={() => navigate(`/countries/${iso2}/cities`)}
     >
       <div>
         <img crossOrigin="anonymous" src={flag} alt={`${name} flag`} />
