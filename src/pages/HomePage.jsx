@@ -19,7 +19,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <Header title="Population/Countries" />
+      <Header title={`Population/Countries (${countries.length})`} />
       <main>
         <Filter />
         <div className="countries-grid">

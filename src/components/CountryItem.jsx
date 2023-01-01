@@ -7,25 +7,29 @@ export default function CountryItem({
   name, statistic, flag, map, iso2, index,
 }) {
   const navigate = useNavigate();
-  const style = {
-    backgroundImage: `url(${map})`,
-  };
 
   const darkStyle = [1, 2].includes((index % 4) % 3);
 
   return (
-    <div
-      className={`country-item ${darkStyle ? 'country-item-dark' : ''}`}
-      style={style}
-      role="presentation"
-      onClick={() => navigate(`/countries/${iso2}/cities`)}
-    >
-      <div className="country-item-header">
-        <img className="country-flag" crossOrigin="anonymous" src={flag} alt={`${name} flag`} />
-        <span className="country-name">{name}</span>
+    <>
+      <style>
+        {`#country-item-${iso2}::before {
+          background-image: url(${map});
+        }`}
+      </style>
+      <div
+        id={`country-item-${iso2}`}
+        className={`country-item ${darkStyle ? 'country-item-dark' : ''}`}
+        role="presentation"
+        onClick={() => navigate(`/countries/${iso2}/cities`)}
+      >
+        <div className="country-item-header">
+          <img className="country-flag" crossOrigin="anonymous" src={flag} alt={`${name} flag`} />
+          <span className="country-name">{name}</span>
+        </div>
+        <span className="country-statistic">{new Intl.NumberFormat().format(statistic)}</span>
       </div>
-      <span className="country-statistic">{statistic}</span>
-    </div>
+    </>
   );
 }
 

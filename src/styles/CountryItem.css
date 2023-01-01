@@ -1,6 +1,17 @@
 .country-item {
+  position: relative;
   aspect-ratio: 1;
   padding: 10px;
+}
+
+.country-item::before {
+  content: "";
+  position: absolute;
+  opacity: 0.5;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
 }
