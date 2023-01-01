@@ -4,6 +4,7 @@ import Filter from '../components/Filter';
 import Header from '../components/Header';
 import CountryItem from '../components/CountryItem';
 import { loadCountries } from '../redux/countries/countries';
+import '../styles/HomePage.css';
 
 export default function HomePage() {
   const [countries, { limit, ge }] = useSelector(
@@ -29,9 +30,10 @@ export default function HomePage() {
               }
               return country.population <= limit;
             })
-            .map((country) => (
+            .map((country, index) => (
               <CountryItem
                 key={country.name}
+                index={index}
                 name={country.name}
                 statistic={country.population}
                 flag={country.flag}

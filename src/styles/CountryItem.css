@@ -1,0 +1,28 @@
+.country-item {
+  aspect-ratio: 1;
+  padding: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.country-item-dark {
+  background-color: var(--primary-color-dark);
+}
+
+.country-item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.country-flag {
+  width: auto;
+  height: 30px;
+}
+
+.country-statistic {
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-top: 100%;
+}
