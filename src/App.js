@@ -6,6 +6,7 @@ import {
 import DetailsPage from './pages/DetailsPage';
 import HomePage from './pages/HomePage';
 import store from './redux/configureStore';
+import './styles/App.css';
 
 export default function App() {
   const router = createBrowserRouter(

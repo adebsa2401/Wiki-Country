@@ -20,7 +20,7 @@ export default function DetailsPage() {
 
   return (
     <div>
-      <Header title="Population/Cities" />
+      <Header title="Population/Cities" showBackButton />
       <main>
         <Filter />
         <div className="cities-list">

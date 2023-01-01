@@ -5,10 +5,10 @@ import { FiSettings } from 'react-icons/fi';
 import { IoIosArrowBack } from 'react-icons/io';
 import '../styles/Header.css';
 
-export default function Header({ title }) {
+export default function Header({ title, showBackButton }) {
   return (
     <header>
-      <IoIosArrowBack />
+      {showBackButton && <IoIosArrowBack onClick={() => window.history.back()} />}
       <h1>{title}</h1>
       <FaMicrophone />
       <FiSettings />
@@ -18,4 +18,9 @@ export default function Header({ title }) {
 
 Header.propTypes = {
   title: PropTypes.string.isRequired,
+  showBackButton: PropTypes.bool,
+};
+
+Header.defaultProps = {
+  showBackButton: false,
 };
