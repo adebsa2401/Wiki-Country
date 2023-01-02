@@ -22,9 +22,16 @@ export default function DetailsPage() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cities && cities.length]);
 
+  const filteredCities = cities && cities.filter((city) => {
+    if (ge) {
+      return city.population >= limit;
+    }
+    return city.population <= limit;
+  });
+
   return (
     <div>
-      <Header title={`Population/Cities (${(cities && cities.length) || 0})`} showBackButton />
+      <Header title={`Population/Cities (${(filteredCities && filteredCities.length) || 0})`} showBackButton />
       <main>
         <Filter />
         <style>
@@ -39,23 +46,17 @@ export default function DetailsPage() {
           </div>
           <span className="country-statistic">{new Intl.NumberFormat().format(country.statistic)}</span>
         </div>
-        <div className="cities-list">
-          {cities && cities
-            .filter((city) => {
-              if (ge) {
-                return city.population >= limit;
-              }
-              return city.population <= limit;
-            })
-            .map((city) => (
-              <CityItem
-                key={city.name}
-                name={city.name}
-                statistic={city.population}
-                isCapital={city.isCapital}
-              />
-            ))}
-        </div>
+        <ul className="cities-list">
+          {filteredCities.map((city, index) => (
+            <CityItem
+              key={city.name}
+              index={index}
+              name={city.name}
+              statistic={city.population}
+              isCapital={city.isCapital}
+            />
+          ))}
+        </ul>
       </main>
     </div>
   );
