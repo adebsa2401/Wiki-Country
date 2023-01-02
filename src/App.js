@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import {
-  createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Navigate,
+  createRoutesFromElements, Route, RouterProvider, Navigate, createHashRouter,
 } from 'react-router-dom';
 import DetailsPage from './pages/DetailsPage';
 import HomePage from './pages/HomePage';
@@ -9,7 +9,7 @@ import store from './redux/configureStore';
 import './styles/App.css';
 
 export default function App() {
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     createRoutesFromElements(
       <Route path="/">
         <Route path="countries" element={<HomePage />} />
