@@ -1,0 +1,11 @@
+:root {
+  --primary-color: #fc5193;
+  --primary-color-dark: #ce4478;
+
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+body {
+  margin: 0;
+}

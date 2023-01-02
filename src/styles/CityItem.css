@@ -1,0 +1,11 @@
+.city-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 30px 10px;
+}
+
+.city-item-even {
+  background-color: var(--primary-color-dark);
+}

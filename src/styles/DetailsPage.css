@@ -1,0 +1,39 @@
+.country-headline {
+  position: relative;
+  height: 150px;
+  padding: 10px;
+}
+
+.country-headline::before {
+  content: "";
+  position: absolute;
+  opacity: 0.5;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.country-headline-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.country-flag {
+  width: auto;
+  height: 30px;
+}
+
+.country-statistic {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.cities-list {
+  list-style: none;
+  padding: 0;
+}
