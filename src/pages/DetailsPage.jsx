@@ -13,7 +13,7 @@ export default function DetailsPage() {
   const country = { ...state };
 
   const [cities, { limit, ge }] = useSelector(
-    (state) => [state.cities[iso2], state.citiesFilter],
+    (state) => [state.cities[iso2], state.itemsFilter],
   );
   const dispatch = useDispatch();
 

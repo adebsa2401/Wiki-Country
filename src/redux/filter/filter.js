@@ -1,6 +1,6 @@
-const FILTER = 'wiki-country/countries/FILTER';
+const FILTER = 'wiki-country/filter/FILTER';
 
-export const filterCountries = (limit, ge) => ({
+export const filterItems = (limit, ge) => ({
   type: FILTER,
   payload: {
     limit,

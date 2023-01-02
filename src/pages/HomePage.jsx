@@ -8,7 +8,7 @@ import '../styles/HomePage.css';
 
 export default function HomePage() {
   const [countries, { limit, ge }] = useSelector(
-    (state) => [state.countries, state.countriesFilter],
+    (state) => [state.countries, state.itemsFilter],
   );
   const dispatch = useDispatch();
 

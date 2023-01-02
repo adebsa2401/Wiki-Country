@@ -1,11 +1,11 @@
 import React from 'react';
 import { FaGreaterThanEqual, FaLessThanEqual } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { filterCountries } from '../redux/countries/filter';
+import { filterItems } from '../redux/filter/filter';
 import '../styles/Filter.css';
 
 export default function Filter() {
-  const { limit, ge } = useSelector((state) => state.countriesFilter);
+  const { limit, ge } = useSelector((state) => state.itemsFilter);
   const dispatch = useDispatch();
 
   return (
@@ -14,7 +14,7 @@ export default function Filter() {
       <button
         className="filter-sign-button"
         type="button"
-        onClick={() => dispatch(filterCountries(limit, !ge))}
+        onClick={() => dispatch(filterItems(limit, !ge))}
       >
         { ge ? <FaGreaterThanEqual /> : <FaLessThanEqual /> }
       </button>
@@ -23,7 +23,7 @@ export default function Filter() {
         type="number"
         value={limit / 1000}
         min={0}
-        onChange={(event) => dispatch(filterCountries(event.target.value * 1000, ge))}
+        onChange={(event) => dispatch(filterItems(event.target.value * 1000, ge))}
       />
       <span>000</span>
     </div>
