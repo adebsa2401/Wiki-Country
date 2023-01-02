@@ -30,7 +30,7 @@ export default function DetailsPage() {
   });
 
   return (
-    <div>
+    <div className="details-content">
       <Header title={`Population/Cities (${(filteredCities && filteredCities.length) || 0})`} showBackButton />
       <main>
         <Filter />

@@ -1,3 +1,7 @@
+.details-content {
+  max-width: 100%;
+}
+
 .country-headline {
   position: relative;
   height: 150px;

@@ -27,7 +27,7 @@ export default function HomePage() {
   const worldPopulation = countries.reduce((acc, country) => acc + country.population, 0);
 
   return (
-    <div>
+    <div className="home-content">
       <Header title={`Population/Countries (${filteredCountries.length})`} />
       <main>
         <Filter />
