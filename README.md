@@ -170,7 +170,10 @@ Give a ⭐️ if you like this project!
 
 <!-- ACKNOWLEDGEMENTS -->
 
-- Microverse
+## 🙏 Acknowledgments <a name="acknowledgements"></a>
+
+- [Microverse](https://www.microverse.org/)
+- I would like to thank [Nelson Sakwa](https://www.behance.net/sakwadesignstudio) for the design inspiration.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
