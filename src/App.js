@@ -1,7 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import {
-  createBrowserRouter, createRoutesFromElements, Route, RouterProvider,
+  createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Navigate,
 } from 'react-router-dom';
 import DetailsPage from './pages/DetailsPage';
 import HomePage from './pages/HomePage';
@@ -14,6 +14,7 @@ export default function App() {
       <Route path="/">
         <Route path="countries" element={<HomePage />} />
         <Route path="countries/:iso2/cities" element={<DetailsPage />} />
+        <Route path="" element={<Navigate to="countries" replace />} />
       </Route>,
     ),
   );
