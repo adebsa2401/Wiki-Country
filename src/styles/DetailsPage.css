@@ -1,10 +1,10 @@
-.country-item {
+.country-headline {
   position: relative;
-  aspect-ratio: 1;
+  height: 150px;
   padding: 10px;
 }
 
-.country-item::before {
+.country-headline::before {
   content: "";
   position: absolute;
   opacity: 0.5;
@@ -16,11 +16,7 @@
   background-repeat: no-repeat;
 }
 
-.country-item-dark {
-  background-color: var(--primary-color-dark);
-}
-
-.country-item-header {
+.country-headline-header {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -33,6 +29,6 @@
 
 .country-statistic {
   position: absolute;
-  bottom: 10px;
   right: 10px;
+  bottom: 10px;
 }

@@ -6,10 +6,10 @@ const minPopulationObject = {};
 
 export const loadCities = createAsyncThunk(
   LOAD,
-  async (country) => {
-    const minPopulation = minPopulationObject[country] || 0;
+  async (iso2) => {
+    const minPopulation = minPopulationObject[iso2] || 0;
 
-    const response = await fetch(`${process.env.REACT_APP_CITIES_API_URL}?country=${country}&min_population=${minPopulation}&limit=30`, {
+    const response = await fetch(`${process.env.REACT_APP_CITIES_API_URL}?country=${iso2}&min_population=${minPopulation}&limit=30`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -24,10 +24,10 @@ export const loadCities = createAsyncThunk(
     }));
 
     if (data.length > 0) {
-      minPopulationObject[country] = Math.max(...data.map((city) => city.population));
+      minPopulationObject[iso2] = Math.max(...data.map((city) => city.population));
     }
 
-    return { [country]: data };
+    return { [iso2]: data };
   },
 );
 

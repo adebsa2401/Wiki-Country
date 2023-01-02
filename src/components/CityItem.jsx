@@ -3,10 +3,10 @@ import { AiFillStar } from 'react-icons/ai';
 
 export default function CityItem({ name, statistic, isCapital }) {
   return (
-    <li>
-      <span>{name}</span>
-      <span>{statistic}</span>
-      {isCapital && <AiFillStar />}
+    <li className="city-item">
+      <span className="city-name">{name}</span>
+      {isCapital && <AiFillStar style={{ color: 'yellow' }} />}
+      <span>{new Intl.NumberFormat().format(statistic)}</span>
     </li>
   );
 }

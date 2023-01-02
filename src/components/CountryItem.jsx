@@ -21,7 +21,11 @@ export default function CountryItem({
         id={`country-item-${iso2}`}
         className={`country-item ${darkStyle ? 'country-item-dark' : ''}`}
         role="presentation"
-        onClick={() => navigate(`/countries/${iso2}/cities`)}
+        onClick={() => navigate(`/countries/${iso2}/cities`, {
+          state: {
+            name, statistic, map, flag,
+          },
+        })}
       >
         <div className="country-item-header">
           <img className="country-flag" crossOrigin="anonymous" src={flag} alt={`${name} flag`} />

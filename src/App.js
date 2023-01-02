@@ -13,7 +13,7 @@ export default function App() {
     createRoutesFromElements(
       <Route path="/">
         <Route path="countries" element={<HomePage />} />
-        <Route path="countries/:country/cities" element={<DetailsPage />} />
+        <Route path="countries/:iso2/cities" element={<DetailsPage />} />
       </Route>,
     ),
   );
