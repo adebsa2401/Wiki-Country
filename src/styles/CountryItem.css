@@ -1,6 +1,6 @@
 .country-item {
   position: relative;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1;
   padding: 10px;
 }
 
