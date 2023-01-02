@@ -47,7 +47,7 @@ export default function DetailsPage() {
           <span className="country-statistic">{new Intl.NumberFormat().format(country.statistic)}</span>
         </div>
         <ul className="cities-list">
-          {filteredCities.map((city, index) => (
+          {filteredCities && filteredCities.map((city, index) => (
             <CityItem
               key={city.name}
               index={index}
