@@ -1,0 +1,13 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  background-color: var(--primary-color-dark);
+}
+
+header h1 {
+  margin: auto;
+  font-size: large;
+}

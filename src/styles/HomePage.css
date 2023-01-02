@@ -1,0 +1,29 @@
+.countries-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.headline {
+  position: relative;
+  height: 150px;
+  padding: 10px;
+}
+
+.headline::before {
+  content: "";
+  position: absolute;
+  opacity: 0.3;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url("https://upload.wikimedia.org/wikipedia/en/1/11/World_map_black.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.world-statistic {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}

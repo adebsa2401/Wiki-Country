@@ -1,0 +1,19 @@
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-left: auto;
+  padding: 10px;
+}
+
+.filter-sign-button {
+  border: none;
+  background-color: inherit;
+}
+
+.filter-input {
+  border: none;
+  outline: none;
+  text-align: right;
+}

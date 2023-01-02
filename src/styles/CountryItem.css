@@ -1,0 +1,44 @@
+.country-item {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  padding: 10px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.country-item::before {
+  content: "";
+  position: absolute;
+  opacity: 0.3;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.country-item-dark {
+  background-color: var(--primary-color-dark);
+}
+
+.country-item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.country-flag {
+  width: 50px;
+  height: auto;
+}
+
+.country-statistic {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.country-name {
+  text-transform: uppercase;
+}
