@@ -7,7 +7,7 @@
 .country-headline::before {
   content: "";
   position: absolute;
-  opacity: 0.5;
+  opacity: 0.3;
   left: 0;
   top: 0;
   height: 100%;
@@ -31,6 +31,10 @@
   position: absolute;
   right: 10px;
   bottom: 10px;
+}
+
+.country-name {
+  text-transform: uppercase;
 }
 
 .cities-list {

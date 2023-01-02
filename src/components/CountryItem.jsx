@@ -29,7 +29,7 @@ export default function CountryItem({
       >
         <div className="country-item-header">
           <img className="country-flag" crossOrigin="anonymous" src={flag} alt={`${name} flag`} />
-          <span className="country-name">{name}</span>
+          <h3 className="country-name">{name}</h3>
         </div>
         <span className="country-statistic">{new Intl.NumberFormat().format(statistic)}</span>
       </div>

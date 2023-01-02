@@ -7,7 +7,7 @@
 .country-item::before {
   content: "";
   position: absolute;
-  opacity: 0.5;
+  opacity: 0.3;
   left: 0;
   top: 0;
   height: 100%;
@@ -35,4 +35,8 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+.country-name {
+  text-transform: uppercase;
 }

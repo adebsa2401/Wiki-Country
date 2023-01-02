@@ -24,11 +24,17 @@ export default function HomePage() {
     return country.population <= limit;
   });
 
+  const worldPopulation = countries.reduce((acc, country) => acc + country.population, 0);
+
   return (
     <div>
       <Header title={`Population/Countries (${filteredCountries.length})`} />
       <main>
         <Filter />
+        <div className="headline">
+          <h2 className="world-name">World wide countries</h2>
+          <span className="world-statistic">{new Intl.NumberFormat().format(worldPopulation)}</span>
+        </div>
         <div className="countries-grid">
           {filteredCountries.map((country, index) => (
             <CountryItem

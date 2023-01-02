@@ -7,7 +7,7 @@ export default function CityItem({
 }) {
   return (
     <li className={`city-item ${index % 2 === 0 ? 'city-item-even' : ''}`}>
-      <span className="city-name">{name}</span>
+      <h3 className="city-name">{name}</h3>
       {isCapital && <AiFillStar style={{ color: 'yellow', marginRight: 'auto' }} />}
       <span>{new Intl.NumberFormat().format(statistic)}</span>
     </li>

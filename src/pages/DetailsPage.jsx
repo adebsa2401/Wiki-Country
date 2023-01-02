@@ -42,7 +42,7 @@ export default function DetailsPage() {
         <div id={`country-headline-${iso2}`} className="country-headline">
           <div className="country-headline-header">
             <img className="country-flag" crossOrigin="anonymous" src={country.flag} alt={`${country.name} flag`} />
-            <span className="country-name">{country.name}</span>
+            <h2 className="country-name">{country.name}</h2>
           </div>
           <span className="country-statistic">{new Intl.NumberFormat().format(country.statistic)}</span>
         </div>
